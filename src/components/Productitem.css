@@ -1,0 +1,35 @@
+.itemcard{
+    height: 320px;
+    width: 220px;
+    color: rgb(66, 66, 66);
+    border: 3px solid green;
+    margin: auto;
+    background: rgb(228, 227, 243);
+    border-radius: 10px;
+}
+.itemcard:hover{
+    transform: scale(1.007);
+    cursor: pointer;
+    
+}
+.itemimage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cardimage{
+    width:200px;
+    height: 200px;
+    
+}
+
+
+
+.pricencart{
+    display:flex ;
+    justify-content: space-around;
+}
+
+.itemname{
+    text-align: center;
+}
