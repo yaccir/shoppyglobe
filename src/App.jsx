@@ -3,6 +3,11 @@ import Header from "./components/Header"
 import ProductDetail from "./components/ProductDetail"
 import ProductItem from "./components/ProductItem"
 import ProductList from "./components/ProductList"
+import CartItem from "./components/CartItem"
+import apStore from "./utils/cartStore"
+import { Provider } from "react-redux";
+import { Cart } from "./components/Cart"
+
 
 
 
@@ -25,11 +30,15 @@ useEffect(()=>{
   return (
     <div>
 
+<Provider store={apStore}>
+
       <Header/>
      
-      {/* <ProductList/> */}
+      <ProductList/>
       <ProductDetail/>
-    
+    <Cart/>
+
+</Provider>
   
     </div> )
 }

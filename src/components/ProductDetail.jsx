@@ -6,7 +6,7 @@ const ProductDetail = () => {
 //removablecode
 
 const [apii,setapi]=useState([]);
-  console.log(apii)
+
 
 useEffect(()=>{
 
@@ -24,6 +24,27 @@ useEffect(()=>{
 },[])
 
 //end of removablecode
+
+const data=useSelector((store)=>{
+    
+    return store.cart11.items;
+  })
+
+
+
+ function handleaddcart() {
+
+  // Check if item already exists in cart
+  const isItemAlready = data.some((item) => item.id === id);
+
+  if (isItemAlready) {
+    alert("Item already added to the cart");
+    return;  // Stop further execution
+  }
+
+  // If item not present, add it to cart
+  dispatch(addCartItem({ title, id, price, image, discount, brand }));
+}
 
 
 
@@ -63,7 +84,7 @@ useEffect(()=>{
             <input className='inputqnty' type="number" />
            </div>
             <button className='cartbutton'>Buy Now</button>
-            <button className='cartbutton'>Add to Cart</button>
+            <button onClick={} className='cartbutton'>Add to Cart</button>
         </form>
      </div>
 

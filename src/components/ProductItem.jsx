@@ -1,6 +1,34 @@
+import { useState } from "react";
 import "../components/ProductItem.css"
+import { useDispatch, useSelector } from "react-redux";
+import { addCartItem } from "../utils/cartSlice";
+
 
 const ProductItem = ( {id,title,price,image,discount,brand}) => {
+
+
+  const [cartitem,setCartitem]=useState([]);
+  const dispatch=useDispatch();
+  const data=useSelector((store)=>{
+    
+    return store.cart11.items;
+  })
+
+
+
+ function handleaddcart() {
+
+  // Check if item already exists in cart
+  const isItemAlready = data.some((item) => item.id === id);
+
+  if (isItemAlready) {
+    alert("Item already added to the cart");
+    return;  // Stop further execution
+  }
+
+  // If item not present, add it to cart
+  dispatch(addCartItem({ title, id, price, image, discount, brand }));
+}
 
 
 
@@ -18,7 +46,7 @@ const ProductItem = ( {id,title,price,image,discount,brand}) => {
           {/* price of the item */}
         <p>{price}</p>
         {/* add to cart button */}
-        <button className="addcartbtn">add to cart</button>
+        <button onClick={handleaddcart} className="addcartbtn">add to cart</button>
         </div>
       </div>
 

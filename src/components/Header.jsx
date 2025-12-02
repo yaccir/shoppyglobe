@@ -1,8 +1,12 @@
 import React from 'react'
 
 import "../components/Header.css"
+import { useSelector } from 'react-redux'
 
 const Header = () => {
+
+
+    const cart=useSelector((store)=>store.cart11.items)
   return (
     <div className='header-container'>
         {/* icon and searchbar */}
@@ -23,7 +27,7 @@ const Header = () => {
         </nav>
 {/* cart div */}
         <div className='cart'>
-            <h2>Cart-0</h2>
+            <h2>Cart-{cart.length}</h2>
         </div>
 
     </div>
