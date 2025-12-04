@@ -5,10 +5,12 @@ import { useSelector } from 'react-redux'
 import {useNavigate} from "react-router"
 
 const Header = () => {
+     const navigate=useNavigate()
 
-    const [search,setsearch]=useState();
+    const [search,setsearch]=useState("");
+    
 
-    const navigate=useNavigate()
+   
 
 
     const cart=useSelector((store)=>store.cart11.items)
@@ -28,14 +30,22 @@ const Header = () => {
     {
         navigate('/login')
     }
-
+    function searchtocomponent()
+    {
+        if(search!="")
+    {
+        navigate(`/search/${search}`)
+    }
+    }
 
   return (
     <div className='header-container'>
         {/* icon and searchbar */}
     <div className='icon'>
         <h1 className='icon-name'>Shoppy Globe</h1>
-        <input type="text" className='input' />
+        <input type="text" value={search}
+         onChange={(e)=>setsearch(e.target.value)} className='input' />
+         <button onClick={searchtocomponent}>search</button>
        
     </div>
 {/* nav bar */}

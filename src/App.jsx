@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import { Cart } from "./components/Cart"
 import { createBrowserRouter, Outlet } from "react-router";
 import { RouterProvider } from "react-router/dom"; 
+import Searched from "./components/Searched"
 
 
 
@@ -39,6 +40,10 @@ export const App = () => {
                   {
                     path:"cart",
                     element:<Cart/>
+                  },
+                  {
+                    path:"search/:term",
+                    element:<Searched/>
                   }
               ]
 

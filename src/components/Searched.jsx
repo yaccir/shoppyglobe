@@ -1,42 +1,57 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from "react-router";
+import ProductItem from './ProductItem';
 
 const Searched = () => {
-    const [apidata,setApidata]=useState([])
-  
-    
 
+  const [searchedapi, setsearchedapi] = useState([]);
+  const  {term} = useParams() // <-- your URL param
+  console.log(term);
 
+  useEffect(() => {
 
-    useEffect(()=>{
-        const api=fetch('https://dummyjson.com/products');
-        api.then((res)=>{
-         return   res.json()
-        }).then((res)=>{
-            setApidata(res.products)
-        
-           
-        })
-        
-    },[])
+    fetch("https://dummyjson.com/products")
+      .then((res) => res.json())
+      .then((data) => {
+       
+
+        const filtered = data.products.filter((item) => {
+            
+          return (
+
+            item.title.includes(term) 
+            // item.brand.toLowerCase().includes(term.toLowerCase())
+          );
+        });
+
+        setsearchedapi(filtered);
+        console.log("i m ok")
+        console.log(term)
+      });
+
+  }, [term]);
 
   return (
     <div className='cards-container'>
-        {/* checking if the state is empty so loading data will be visible till data is fetched */}
-       {apidata.length==0&&<h1>Loading Data....</h1>}
+      
+      {searchedapi.length === 0 && <h1>Loading Data....</h1>}
 
-
-       {/* after ftching the data using useeffec to the components state apidata the cards will be visible */}
-        {apidata.length!=0&& apidata.map((item,index)=>{
-    
-           return ( <ProductItem key={index} id={item.id} title={item.title} price={item.price} 
-          image={item.images[0]} discount={item.discount} brand={item.brand}/>)
-        })
-       }
-
-  
+      {searchedapi.length !== 0 && searchedapi.map((item, index) => {
+        return (
+          <ProductItem
+            key={index}
+            id={item.id}
+            title={item.title}
+            price={item.price}
+            image={item.images[0]}
+            discount={item.discount}
+            brand={item.brand}
+          />
+        );
+      })}
 
     </div>
-  )
-}
+  );
+};
 
-export default Searched
+export default Searched;
