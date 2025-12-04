@@ -1,107 +1,133 @@
 import React, { useEffect, useState } from 'react'
 import "../components/ProductDetail.css"
+import {useParams} from "react-router";
+import { useDispatch, useSelector } from 'react-redux';
+import { addCartItem, setQuantities } from '../utils/cartSlice';
 
 const ProductDetail = () => {
 
-//removablecode
 
-const [apii,setapi]=useState([]);
+    const [quantity,setquantity]=useState(0);
+    const dispatch=useDispatch();
 
+    const id2=useParams();
+  
+    const [dataofitem,setdataofitem]=useState({});
 
-useEffect(()=>{
-
-    const api=fetch('https://dummyjson.com/products');
-        api.then((res)=>{
-         return   res.json()
-        })
-        .then((res)=>{
-        setapi(res.products)
-       
-        })
-        
-        
-
-},[])
-
-//end of removablecode
 
 const data=useSelector((store)=>{
     
     return store.cart11.items;
   })
+  console.log(data)
+
+  useEffect(()=>{
+     const api=fetch('https://dummyjson.com/products');
+        api.then((res)=>{
+         return   res.json()
+        }).then((res)=>{
+
+        const newarray=  res.products.filter((item)=>{
+
+            if(Number(id2.id)==item.id){
+                console.log("i m hit")
+                 item.image=item.images[0];
+                 console.log(item)
+                 return true
+            }
+                 else 
+                    return false;
+                            })
+
+
+            setdataofitem(newarray[0])
+                
+        })
+        
+
+  },[])
 
 
 
- function handleaddcart() {
+ function handleaddcart(e) {
+    e.preventDefault()
 
+     
   // Check if item already exists in cart
-  const isItemAlready = data.some((item) => item.id === id);
-
+  const isItemAlready = data.some((item) => item.id===Number(id2.id));
+   console.log(isItemAlready)
   if (isItemAlready) {
     alert("Item already added to the cart");
     return;  // Stop further execution
   }
 
+  const { title, id, price, image, discountPercentage: discount, brand }=dataofitem;
   // If item not present, add it to cart
   dispatch(addCartItem({ title, id, price, image, discount, brand }));
+  
 }
+
+function handlequantity(e) {
+  const value = Number(e.target.value);
+  const productId = Number(id2.id);
+
+  dispatch(setQuantities({ id: productId, value }));
+}
+
 
 
 
   return ( <div>
    {
-    apii.length==0 &&<h1>Loading...</h1>
-   }
-   {
-    apii.length!=0 &&<div className='topcontainer'>
+    <div className='topcontainer'>
 
 
          <div className='containerdetails'>
 
         <div className='imagecontofproduct'>
-        <img className='imageofprod' src={apii[0].images[0]} alt="" />
+        <img className='imageofprod' src={dataofitem.image} alt="" />
         </div>
 
         <div className='detailscont'>
 
             <div className='cont1'>
-                 <h2>{apii[0].title} </h2> 
-                <h3> by {apii[0].brand}</h3>
+                 <h2>{dataofitem.title} </h2> 
+                <h3> by {dataofitem.brand}</h3>
             </div>
         
 
      <div className='cont2'>
-                   <h5> Price: Rs {apii[0].price}/- </h5>
-             <h4> Discount: {apii[0].discountPercentage}%  </h4>
-        <h3> Ratings: {apii[0].rating}⭐</h3>  
-        <h6> Category:  {apii[0].category}</h6>
+                   <h5> Price: Rs {dataofitem.price}/- </h5>
+             <h4> Discount: {dataofitem.discountPercentage}%  </h4>
+        <h3> Ratings: {dataofitem.rating}⭐</h3>  
+        <h6> Category:  {dataofitem.category}</h6>
      </div>
 
      <div className='form-container'>
         <form action="" className='inputlabel'>
            <div>
              <label className='labelforinput' htmlFor="">Quantity:</label>
-            <input className='inputqnty' type="number" />
+            <input onChange={handlequantity} className='inputqnty' type="number" />
            </div>
             <button className='cartbutton'>Buy Now</button>
-            <button onClick={} className='cartbutton'>Add to Cart</button>
+            <button onClick={handleaddcart} className='cartbutton'>Add to Cart</button>
         </form>
      </div>
 
          <div className='cont3'>
-             <p>Minimum Order : {apii[0].minimumOrderQuantity} </p>
-          <p>Availaible Instock {apii[0].stock}</p>
-          <p>Weight {apii[0].weight}Kg</p>
+             <p>Minimum Order : {dataofitem.minimumOrderQuantity} </p>
+          <p>Availaible Instock {dataofitem.stock}</p>
+          <p>Weight {dataofitem.weight}Kg</p>
          </div>
 
         <div className='cont4'>
-            <p>{apii[0].description}</p>
+            <p>{dataofitem.description}</p>
         </div>
 
        <div className='cont5'>
-           <p>warranty : {apii[0].warrantyInformation} only</p>
-          <p> {apii[0].warrantyInformation}</p>
-          <p>{apii[0].returnPolicy}</p>
+           <p>warranty : {dataofitem.warrantyInformation} only</p>
+          <p> {dataofitem.warrantyInformation}</p>
+          <p>{dataofitem.returnPolicy}</p>
        </div>
        
       

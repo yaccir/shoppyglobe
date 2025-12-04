@@ -1,8 +1,17 @@
 import React, { useEffect } from 'react'
 import "../components/CartItem.css"
+import { useDispatch } from 'react-redux'
+import { removeCartItem } from '../utils/cartSlice';
 
 const CartItem = ({image,id,brand,price,name}) => {
+    const dispatch=useDispatch();
 
+    function handleremove()
+    {
+        dispatch(removeCartItem(id))
+        console.log("i am hit 1")
+
+    }
 
   return (
     <div className='cart-container'>
@@ -14,7 +23,7 @@ const CartItem = ({image,id,brand,price,name}) => {
             <div className='cart-details-2'>
             <p>{price}</p>
                <p>discount</p>
-                <button>Remove</button>
+                <button onClick={handleremove}>Remove</button>
             </div>
         </div>
         <div className='cart-details-3'>

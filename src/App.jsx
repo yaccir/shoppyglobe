@@ -7,30 +7,50 @@ import CartItem from "./components/CartItem"
 import apStore from "./utils/cartStore"
 import { Provider } from "react-redux";
 import { Cart } from "./components/Cart"
-
+import { createBrowserRouter, Outlet } from "react-router";
+import { RouterProvider } from "react-router/dom"; 
 
 
 
 
 export const App = () => {
 
-//removable code
 
-useEffect(()=>{
+  const router=createBrowserRouter([
+    {
+      path:"/",
+      element:<div>
+        <Header/>
+      
+        <Outlet/>
+              </div>,
+
+              children:[
 
 
+                {
+                  path:'/',
+                  element:  <ProductList/>
+                },
+                  {
+                    path:'productdetail/:id',
+                    element:<ProductDetail/>
+                  },
+                  {
+                    path:"cart",
+                    element:<Cart/>
+                  }
+              ]
 
+    }
+  ])
 
-},[])
-
-
-
-//end of removable code
 
   return (
     <div>
-
 <Provider store={apStore}>
+<RouterProvider router={router}>
+
 
       <Header/>
      
@@ -38,8 +58,10 @@ useEffect(()=>{
       <ProductDetail/>
     <Cart/>
 
-</Provider>
-  
+
+
+</RouterProvider>
+  </Provider>
     </div> )
 }
 

@@ -15,11 +15,33 @@ reducers:{
            id:action.payload.id,
             image:action.payload.image,
             brand:action.payload.brand,
+            quantity:1
+            
         })
+        
       },
-      setQuantities:()=>{},
-      removeCartItem:()=>{},
-      clearCartItems:()=>{},
+    setQuantities: (state, action) => {
+  state.items = state.items.map((item) => {
+    if (item.id === action.payload.id) {
+      return { ...item, quantity: action.payload.value };
+    }
+    return item;
+  });
+},
+      removeCartItem:(state,action)=>{
+           state.items = state.items.filter((item) => {
+    if (item.id === action.payload) {
+           return false;
+    }
+    return true;
+  });
+
+
+      },
+      clearCartItems:(state,action)=>{
+        state.items.length=0;
+
+      },
   
 }
 

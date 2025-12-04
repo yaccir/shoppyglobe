@@ -2,11 +2,13 @@ import { useState } from "react";
 import "../components/ProductItem.css"
 import { useDispatch, useSelector } from "react-redux";
 import { addCartItem } from "../utils/cartSlice";
+import {useNavigate} from "react-router"
 
 
 const ProductItem = ( {id,title,price,image,discount,brand}) => {
 
 
+const navigate=useNavigate()
   const [cartitem,setCartitem]=useState([]);
   const dispatch=useDispatch();
   const data=useSelector((store)=>{
@@ -15,6 +17,10 @@ const ProductItem = ( {id,title,price,image,discount,brand}) => {
   })
 
 
+  function handleclick()
+  {
+    navigate(`/productdetail/${id}`);
+  }
 
  function handleaddcart() {
 
@@ -34,7 +40,7 @@ const ProductItem = ( {id,title,price,image,discount,brand}) => {
 
   return (
 
-    <div className="itemcard">
+    <div onClick={handleclick} className="itemcard">
       {/* item card  */}
       <div className="itemimage">
         <img className="cardimage" src={image} alt="" />
