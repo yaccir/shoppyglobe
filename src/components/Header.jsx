@@ -32,10 +32,20 @@ const Header = () => {
     }
     function searchtocomponent()
     {
-        if(search!="")
+        if(search.trim()!="")
     {
         navigate(`/search/${search}`)
     }
+    if(search.trim()=="")
+    {
+        alert("Enter item name")
+        return;
+    }
+    }
+    function handlechange(e)
+    {
+       setsearch(e.target.value)
+     
     }
 
   return (
@@ -44,7 +54,7 @@ const Header = () => {
     <div className='icon'>
         <h1 className='icon-name'>Shoppy Globe</h1>
         <input type="text" value={search}
-         onChange={(e)=>setsearch(e.target.value)} className='input' />
+         onChange={handlechange} className='input' />
          <button onClick={searchtocomponent}>search</button>
        
     </div>

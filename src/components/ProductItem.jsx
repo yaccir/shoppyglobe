@@ -7,7 +7,7 @@ import {useNavigate} from "react-router"
 
 const ProductItem = ( {id,title,price,image,discount,brand}) => {
 
-
+const quan=1;
 const navigate=useNavigate()
   const [cartitem,setCartitem]=useState([]);
   const dispatch=useDispatch();
@@ -22,7 +22,8 @@ const navigate=useNavigate()
     navigate(`/productdetail/${id}`);
   }
 
- function handleaddcart() {
+ function handleaddcart(e) {
+  e.stopPropagation();
 
   // Check if item already exists in cart
   const isItemAlready = data.some((item) => item.id === id);
@@ -33,7 +34,7 @@ const navigate=useNavigate()
   }
 
   // If item not present, add it to cart
-  dispatch(addCartItem({ title, id, price, image, discount, brand }));
+  dispatch(addCartItem({ title, id, price, image, discount, brand,quan }));
 }
 
 

@@ -7,7 +7,7 @@ import { addCartItem, setQuantities } from '../utils/cartSlice';
 const ProductDetail = () => {
 
 
-    const [quantity,setquantity]=useState(0);
+    
     const dispatch=useDispatch();
 
     const id2=useParams();
@@ -15,11 +15,14 @@ const ProductDetail = () => {
     const [dataofitem,setdataofitem]=useState({});
 
 
-const data=useSelector((store)=>{
-    
-    return store.cart11.items;
-  })
-  console.log(data)
+
+  const data=useSelector((store)=>store.cart11.items);
+         const currentqnty=data.find((item)=>item.id==id2.id)
+      const [inputqnty,setInputqnty]=useState(
+          currentqnty?.quantity||1
+  
+          
+      );
 
   useEffect(()=>{
      const api=fetch('https://dummyjson.com/products');
@@ -61,17 +64,29 @@ const data=useSelector((store)=>{
     return;  // Stop further execution
   }
 
-  const { title, id, price, image, discountPercentage: discount, brand }=dataofitem;
+  const { title, id, price, image, discountPercentage: discount, brand,}=dataofitem;
   // If item not present, add it to cart
-  dispatch(addCartItem({ title, id, price, image, discount, brand }));
+  const quan=inputqnty;
+  dispatch(addCartItem({ title, id, price, image, discount, brand ,quan }));
   
 }
 
 function handlequantity(e) {
-  const value = Number(e.target.value);
-  const productId = Number(id2.id);
 
-  dispatch(setQuantities({ id: productId, value }));
+  setInputqnty(e.target.value)
+          if(e.target.value<=0){
+              alert("at least one item should be added")
+          return;}
+          else
+          {
+              
+                const value = Number(e.target.value);
+                const productId = Number(id2.id);
+              
+                dispatch(setQuantities({ id: productId, value }));
+              
+          }
+  
 }
 
 
@@ -107,7 +122,7 @@ function handlequantity(e) {
         <form action="" className='inputlabel'>
            <div>
              <label className='labelforinput' htmlFor="">Quantity:</label>
-            <input onChange={handlequantity} className='inputqnty' type="number" />
+            <input onChange={handlequantity} value={inputqnty} className='inputqnty' type="number" />
            </div>
             <button className='cartbutton'>Buy Now</button>
             <button onClick={handleaddcart} className='cartbutton'>Add to Cart</button>

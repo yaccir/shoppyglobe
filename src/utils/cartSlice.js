@@ -15,7 +15,7 @@ reducers:{
            id:action.payload.id,
             image:action.payload.image,
             brand:action.payload.brand,
-            quantity:1
+            quantity:action.payload.quan
             
         })
         

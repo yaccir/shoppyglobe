@@ -1,0 +1,26 @@
+.cartpage{
+    display: flex;
+    flex-direction: column;
+}
+
+.placeordercont{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+    margin-right: 50px;
+}
+.placeorderbtn{
+    background-color: blue;
+    color: white;
+    width: 180px;
+    height: 80px;
+    font-size: 20px;
+    
+
+}
+.placeorderbtn:hover{
+    transform:scale(1.006) ;
+    cursor: pointer;
+    background-color: rgb(3, 5, 90);
+}

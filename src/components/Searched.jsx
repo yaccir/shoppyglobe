@@ -6,7 +6,7 @@ const Searched = () => {
 
   const [searchedapi, setsearchedapi] = useState([]);
   const  {term} = useParams() // <-- your URL param
-  console.log(term);
+
 
   useEffect(() => {
 
@@ -19,14 +19,13 @@ const Searched = () => {
             
           return (
 
-            item.title.includes(term) 
-            // item.brand.toLowerCase().includes(term.toLowerCase())
+            item.title?.toLowerCase().includes(term.toLowerCase()) 
+            ||item.brand?.toLowerCase().includes(term.toLowerCase())
           );
         });
 
         setsearchedapi(filtered);
-        console.log("i m ok")
-        console.log(term)
+      
       });
 
   }, [term]);

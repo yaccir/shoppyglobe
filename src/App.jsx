@@ -10,6 +10,7 @@ import { Cart } from "./components/Cart"
 import { createBrowserRouter, Outlet } from "react-router";
 import { RouterProvider } from "react-router/dom"; 
 import Searched from "./components/Searched"
+import PlaceOrder from "./components/PlaceOrder"
 
 
 
@@ -44,6 +45,10 @@ export const App = () => {
                   {
                     path:"search/:term",
                     element:<Searched/>
+                  },
+                  {
+                    path:"/placeorder",
+                    element: <PlaceOrder/>
                   }
               ]
 
