@@ -21,7 +21,7 @@ const SignUp = () => {
         <label htmlFor=""> Enter Your Full Name:</label>
         <input type="text" className='nameinput' {...register("fullname")} />
 
-         {/* <div className='radio-cont'>
+         <div className='radio-cont'>
          <div>
                <input {...register("gender")} type="radio" />
              <label htmlFor="">Male</label>
@@ -30,7 +30,7 @@ const SignUp = () => {
               <input {...register("gender")} type="radio" /> 
          <label htmlFor="">Female</label>
         </div>
-         </div> */}
+         </div>
 
       <div className='mobileandemail'>
 
