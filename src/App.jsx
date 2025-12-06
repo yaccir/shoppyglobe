@@ -11,6 +11,7 @@ import { createBrowserRouter, Outlet } from "react-router";
 import { RouterProvider } from "react-router/dom"; 
 import Searched from "./components/Searched"
 import PlaceOrder from "./components/PlaceOrder"
+import SignUp from "./components/SignUp"
 
 
 
@@ -49,6 +50,11 @@ export const App = () => {
                   {
                     path:"/placeorder",
                     element: <PlaceOrder/>
+                  },
+                  {
+                    path:"/signup",
+                    element:<SignUp/>
+                  
                   }
               ]
 

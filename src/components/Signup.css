@@ -1,0 +1,41 @@
+.form
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container{
+    width: 500px;
+    margin: auto;
+    border: 2px solid  black;
+    padding: 20px;
+}
+.radio-cont{
+    display: flex;
+    gap: 190px;
+    margin: 10px;
+}
+
+.mobileandemail{
+    display: flex;
+    width: 100%;
+    margin: 10px;
+}
+.address-cont{
+    margin: 10px;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+}
+.nameinput{
+    width: 100%
+}
+
+.submit{
+    width: 100px;
+}
+
+.submit-btn{
+    margin: auto;
+}
