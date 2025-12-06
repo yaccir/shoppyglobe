@@ -6,7 +6,7 @@
 
 .form-container{
     width: 500px;
-    margin: auto;
+    margin: 50px auto;
     border: 2px solid  black;
     padding: 20px;
 }
@@ -34,8 +34,19 @@
 
 .submit{
     width: 100px;
+    height: 35px;
+    background-color: #0866ff;
+    color:white;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.submit:hover{
+    background: #1d2bfa;
+    transform: scale(1.05);
 }
 
 .submit-btn{
     margin: auto;
+ 
 }
