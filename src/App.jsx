@@ -1,18 +1,30 @@
-import { useEffect } from "react"
+
 import Header from "./components/Header"
-import ProductDetail from "./components/ProductDetail"
-import ProductItem from "./components/ProductItem"
+import React, { Suspense } from "react";
+
+const ProductDetail=React.lazy(()=>{
+  return import("./components/ProductDetail")
+})
+
 import ProductList from "./components/ProductList"
-import CartItem from "./components/CartItem"
 import apStore from "./utils/cartStore"
 import { Provider } from "react-redux";
-import { Cart } from "./components/Cart"
+
+const Cart=React.lazy(()=>{
+ return  import ("./components/Cart")
+})
 import { createBrowserRouter, Outlet } from "react-router";
 import { RouterProvider } from "react-router/dom"; 
 import Searched from "./components/Searched"
-import PlaceOrder from "./components/PlaceOrder"
-import SignUp from "./components/SignUp"
-import { LogIn } from "./components/LogIn"
+
+// import { Cart } from "./components/Cart";
+
+const PlaceOrder=React.lazy(()=>{
+return import  ("./components/PlaceOrder")
+})
+
+
+
 
 
 
@@ -38,29 +50,32 @@ export const App = () => {
                 },
                   {
                     path:'productdetail/:id',
-                    element:<ProductDetail/>
+                    element:
+                    <Suspense fallback="LOADING PRODUCT DETAIL.....">
+                          <ProductDetail/>  
+                    </Suspense>
+                    
                   },
                   {
                     path:"cart",
-                    element:<Cart/>
+                    element:<Suspense fallback="Loading CART.....">
+                      <Cart/>
+                    </Suspense>
+                   
                   },
+
                   {
                     path:"search/:term",
                     element:<Searched/>
                   },
                   {
                     path:"/placeorder",
-                    element: <PlaceOrder/>
+                    element: <Suspense fallback="Loading placeorder">
+                      <PlaceOrder/>
+                    </Suspense>
                   },
-                  {
-                    path:"/signup",
-                    element:<SignUp/>
-                  
-                  },
-                  {
-                    path:"/login",
-                    element:<LogIn/>
-                  }
+                
+                
               ]
 
     }
@@ -70,18 +85,15 @@ export const App = () => {
   return (
     <div>
 <Provider store={apStore}>
-<RouterProvider router={router}>
+<RouterProvider router={router}/>
 
 
-      <Header/>
-     
-      <ProductList/>
-      <ProductDetail/>
-    <Cart/>
+      
+    
 
 
 
-</RouterProvider>
+
   </Provider>
     </div> )
 }

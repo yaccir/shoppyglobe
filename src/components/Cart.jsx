@@ -4,7 +4,7 @@ import CartItem from './CartItem'
 import "../components/Cart.css"
 import {useNavigate} from "react-router"
 
-export const Cart = () => {
+function Cart(){
   
   const cartstore=useSelector((store)=>store.cart11.items)
         const navigate=useNavigate();
@@ -28,7 +28,12 @@ export const Cart = () => {
         }
 </div>
 
-<div className='placeordercont'>
+
+<div  className={cartstore.length==0?"vcart":"incart" }>
+  <h1>NO ITEMS ADDED TO THE CART</h1>
+</div>
+
+<div className={cartstore.length!=0?"placeordercont":"incart" }>
 
  <button onClick={placeorder} className='placeorderbtn' >Place Order</button>
 </div>
@@ -37,3 +42,6 @@ export const Cart = () => {
     </div>
   )
 }
+
+
+export default Cart;

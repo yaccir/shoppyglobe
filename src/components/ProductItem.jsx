@@ -44,7 +44,7 @@ const navigate=useNavigate()
     <div onClick={handleclick} className="itemcard">
       {/* item card  */}
       <div className="itemimage">
-        <img className="cardimage" src={image} alt="" />
+        <img className="cardimage" loading="lazy" src={image} alt="product image" />
       </div>
       <div className="itemdetails">
         {/* name of the item */}

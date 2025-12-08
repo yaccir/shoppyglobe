@@ -24,3 +24,13 @@
     cursor: pointer;
     background-color: rgb(3, 5, 90);
 }
+.vcart{
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 50px;
+
+}
+.incart{
+display: none;
+}

@@ -2,6 +2,7 @@
 {
     display: flex;
     flex-direction: column;
+    display: block;
 }
 
 .form-container{
@@ -9,6 +10,10 @@
     margin: 50px auto;
     border: 2px solid  black;
     padding: 20px;
+   
+}
+.formcontt{
+    display: none;
 }
 .radio-cont{
     display: flex;
@@ -49,4 +54,11 @@
 .submit-btn{
     margin: auto;
  
+}
+.visib{
+    display: block;
+    color: green;
+}
+.invisib{
+    display: none;
 }
