@@ -87,7 +87,11 @@ export const App = () => {
     {
                  
                     path:"*",
-                    element:<Error/>
+                    element: <div>
+                      <Error/>
+                      <Footer/>
+                    </div>
+
                   
               }
   ])
