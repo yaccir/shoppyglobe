@@ -1,16 +1,229 @@
-# React + Vite
+# ShoppyGlobe E-commerce Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple e-commerce application built using **React + Vite**, demonstrating component structure, routing, Redux state management, data fetching, event handling, and performance optimization.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Project Overview
 
-## React Compiler
+ShoppyGlobe is a basic e-commerce application where users can:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Browse products
+* View product details
+* Add/remove items from the cart
+* Adjust cart item quantities
+* Search products
+* Checkout using a dummy checkout form
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+---
+
+## 🚀 Features
+
+### ✔ Component Structure
+
+* **App** – Root component
+* **Header** – Contains navigation & cart icon
+* **ProductList** – Shows products fetched from API
+* **ProductItem** – Displays individual product details
+* **ProductDetail** – Dynamic page to show product info
+* **Cart** – Contains added items
+* **CartItem** – Renders each item in the cart
+* **NotFound** – Custom 404 page
+* **Checkout** – Dummy form + order summary
+
+---
+
+## 🔗 API Used
+
+Product data fetched from:
+
+```
+https://dummyjson.com/products
+```
+
+Custom hooks and useEffect used for fetching the product list and product detail.
+
+---
+
+## 🧰 State Management (Redux)
+
+Implemented using Redux Toolkit:
+
+* Add to cart
+* Remove from cart
+* Update quantity (not below 1)
+* Product search using Redux state
+
+---
+
+## 🔀 Routing (React Router v6)
+
+Routes:
+
+* `/` – Home (ProductList)
+* `/product/:id` – Product Detail
+* `/cart` – Cart page
+* `/checkout` – Checkout
+* `*` – NotFound
+
+Uses **createBrowserRouter** for modern features.
+
+---
+
+## 📦 Performance Optimization
+
+* Code splitting using **React.lazy + Suspense**
+* Lazy-loaded components
+* Lazy loading for images
+
+---
+
+## 🎨 Styling
+
+* Responsive CSS
+* Clean, simple UI design
+
+---
+
+## 📁 Folder Structure
+
+```
+src/
+├── components/
+│   ├── Header.jsx
+│   ├── ProductList.jsx
+│   ├── ProductItem.jsx
+│   ├── ProductDetail.jsx
+│   ├── Cart.jsx
+│   ├── CartItem.jsx
+│   ├── NotFound.jsx
+│   └── Checkout.jsx
+│
+├── redux/
+│   ├── cartStore.js
+│   └── cartSlice.js
+        cartSlice.js
+│
+
+│
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+## 🧪 Error Handling
+
+* Proper error states for failed fetch
+* 404 Page with error details
+
+---
+
+## 📜 Submission Guidelines Followed
+
+✔ Vite used for project creation
+✔ Proper indentation & comments
+✔ Node modules removed before submission
+✔ 25+ meaningful commits
+✔ GitHub repository included
+
+---
+
+## 🔗 GitHub Repository
+
+👉 **Repository Link:** (https://github.com/yaccir/shoppyglobe)
+
+---
+
+## 📦 Running the Project
+
+### 1️⃣ Install dependencies
+
+```
+npm install
+```
+
+### 2️⃣ Start development server
+
+```
+npm run dev
+```
+
+### 3️⃣ Build for production
+
+```
+npm run build
+```
+
+---
+
+## 🛠 Working of the Application
+
+### 🔹 1. Home Page (ProductList)
+
+* Fetches all products from **dummyjson API** using a custom hook and `useEffect`.
+* Products are displayed in a grid using the **ProductItem** component.
+* Search bar filters products globally using **Redux state**.
+
+### 🔹 2. Product Detail Page
+
+* When the user clicks a product, route navigates to `/product/:id`.
+* `useEffect` fetches product details using the ID.
+* Shows complete information: title, price, description, rating, brand, image.
+* User can add the product to the cart.
+
+### 🔹 3. Cart Page
+
+* Displays all added items using **CartItem** component.
+* Quantity can be increased/decreased (minimum 1).
+* Items can be removed using Redux actions.
+* Total price updates automatically.
+
+### 🔹 4. Checkout Page
+
+* Contains a form to collect user information (dummy form).
+* Shows order summary.
+* Clicking **Place Order**:
+
+  * Clears the cart using Redux.
+  * Shows success message: *"Order Placed"*.
+  * Redirects automatically to Home.
+
+### 🔹 5. Error Handling
+
+* If any API request fails, a message appears on UI.
+* Invalid route shows a custom **404 NotFound Page**.
+
+### 🔹 6. Code Splitting
+
+* All components such as ProductDetail, Cart, Checkout are lazily loaded using `React.lazy` + `Suspense`.
+* Images are also lazy loaded for performance.
+
+
+
+### 🔹 7. Responsive Design
+
+* Fully responsive using pure CSS.
+* Works on mobile, tablet, and large screens.
+
+## 🎉 Conclusion
+
+This project demonstrates practical implementation of:
+
+* React component architecture
+* API data fetching
+* Redux state management
+* Routing
+* Performance optimization
+
+Feel free to extend this project further by adding:
+
+* User authentication
+* Payment gateway integration
+* Wishlist functionality
+
+---
+
+
