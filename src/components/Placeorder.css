@@ -61,6 +61,7 @@
 .visib{
     display: block;
     color: green;
+    width: 500px;
 }
 .invisib{
     display: none;
