@@ -17,6 +17,7 @@ import { createBrowserRouter, Outlet } from "react-router";
 import { RouterProvider } from "react-router/dom"; 
 import Searched from "./components/Searched"
 import Footer from "./components/Footer";
+import Error from "./components/Error";
 
 // import { Cart } from "./components/Cart";
 
@@ -47,7 +48,7 @@ export const App = () => {
 
 
                 {
-                  path:'/',
+                  index:true,
                   element:  <ProductList/>
                 },
                   {
@@ -71,20 +72,24 @@ export const App = () => {
                     element:<Searched/>
                   },
                   {
-                    path:"/placeorder",
+                    path:"placeorder",
                     element: <Suspense fallback="Loading placeorder">
                       <PlaceOrder/>
                     </Suspense>
                   },
-                  {
-                    path:"/x",
-                    element:<Header/>
-                  }
                 
                 
-              ]
+                
+              ],
+              
 
-    }
+    },
+    {
+                 
+                    path:"*",
+                    element:<Error/>
+                  
+              }
   ])
 
 

@@ -1,0 +1,28 @@
+.errorcont{
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.errorimage{
+   
+    height: 95vh;
+}
+
+.homebtn{
+    width: 100px;
+    height: 40px;
+    font-size: 13px;
+    background-color: blue;
+    color: wheat;
+    font-size: 12px;
+}
+
+.homebtn:hover{
+transform: scale(1.05);
+}
