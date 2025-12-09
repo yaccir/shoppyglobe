@@ -73,7 +73,7 @@ const ProductDetail = () => {
 }
 
 function handlequantity(e) {
-
+// setting item  quantity
   setInputqnty(e.target.value)
           if(e.target.value<=0){
               alert("at least one item should be added")

@@ -95,7 +95,9 @@ export const App = () => {
 
   return (
     <div>
+      {/* store providerof redux */}
 <Provider store={apStore}>
+  {/* router provider for application react router dom */}
 <RouterProvider router={router}/>
 
 

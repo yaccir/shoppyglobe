@@ -5,7 +5,7 @@ import ProductItem from './ProductItem';
 const Searched = () => {
 
   const [searchedapi, setsearchedapi] = useState([]);
-  const  {term} = useParams() // <-- your URL param
+  const  {term} = useParams() // getting the input text for search
 
 
   useEffect(() => {

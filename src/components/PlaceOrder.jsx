@@ -25,16 +25,17 @@ const userlogin=useSelector((store)=>{
 })
 
  
-console.log(userlogin);
+
 
     function onsubmit(data)
     {
+      //adding data to redux store
 dispatch(registerUser(data))
 dispatch(clearCartItems())
 setflag(true);
       
     }
-
+// after placing order waits for 3 secs and redirects to home
   if(flag==true)
   {
      setTimeout(() => {
@@ -60,7 +61,7 @@ setflag(true);
         }
           )} />
 
-
+{/* shows error message */}
           {
             errors.fullname&& <p className='p1'>{errors.fullname.message}</p>
           }
@@ -150,7 +151,7 @@ setflag(true);
     </div>
 
 
-  )  
+  )   
 }
 
 

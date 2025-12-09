@@ -15,9 +15,11 @@ function Cart(){
   }
   
     return (
+
+      // cart page 
     <div className='cartpage'>
 <div>
-    
+    {/* shows added item through loop */}
         {
             cartstore.map((item,index)=>{
             

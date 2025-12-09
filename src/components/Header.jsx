@@ -46,6 +46,8 @@ const Header = () => {
         {/* icon and searchbar */}
     <div className='icon'>
          
+
+         {/* navbar for small screens */}
           <div className= 'menusmall'>
           
         <button className='btns' onClick={handlehome}>Home</button>
@@ -67,7 +69,7 @@ const Header = () => {
 
 
 
-     
+     {/* navbar foor big screens */}
     <div className='nav-container'>
 
         <nav className='nav0'>
