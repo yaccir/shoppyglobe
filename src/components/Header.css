@@ -1,137 +1,134 @@
 .header-container{
   display: flex;
-  flex-direction: row;
-  margin: auto;
-  width: 100vw;
-  height: 120px;
-background-color: darkseagreen;  
-}
-
-
-.icon{
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  width: 80%;
+  width: 100%;
+  height: auto;
   justify-content: space-between;
+  align-items: center;
   
+  flex-wrap: wrap;
+  padding: 10px 15px;
 }
+
+/* Hamburger menu (mobile only visible) */
+.hmenu{
+  width: 40px;
+  height: 40px;
+  display: none;
+  cursor: pointer;
+}
+
+/* Search + Icon container */
 .searchandicon{
   display: flex;
-  width: 70%;
-  justify-content: center;
+  width: 90%;
+  justify-content: space-between;
   align-items: center;
+}
+
+.icon{
+  display: flex;
+  width: 80%;
+  height: auto;
   flex-wrap: wrap;
 }
-.icon-name{
-  width:45%;
-  margin: 10px;
-}
-.menusmall{
-  display: flex;
-  flex-direction: column;
-  width: 180px;
-  background:transparent;
-  height: 150px;
-  position: absolute;
-  top: 50px;
-  left: -30px;
-  
-  
 
-}
-.smallheading{
-  text-align: center;
-}
-.hmenu{
-  display: none;
-}
-
-.rmvmenu{
-  display: none;
-}
-.btns{
-  width: 100px;
-  height: 45px;
-  background-color: rgb(24, 24, 194);
- 
-  margin: 10px;
-  cursor: pointer;
-  font-size: 15px;
-  color: aliceblue;
-}
-.btns:hover{
-  transform: scale(1.05);
-}
-
-.input{
-  width: 40%;
-  height: 40px;
-}
-.btns2{
- width: 100px;
-  height: 45px;
-  background-color: rgb(24, 24, 194);
-  
-  margin: 10px;
-  cursor: pointer;
-  font-size: 15px;
-  color: aliceblue;
-}
-.nav-container{
-  display: flex;
-}
-.nav-pannel{
-  list-style: none;
-}
 .nav-container{
   width: 20%;
   display: flex;
- justify-content: space-around;
- align-items: center;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
 }
 
-
-@media (max-width:750px) {
-  .hmenu{
-    display: block;
-  width: 30px;
-  height: 30px;
+.nav-pannel{
+  display: flex;
+  list-style: none;
+  width: 200px;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.nav-container{
+.searchcont{
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.input{
+  width:80%;
+  height: 40px;
+}
+
+.btnssearch{
+  width: 15%;
+  height: 46px;
+}
+.menusmall{
   display: none;
 }
-.icon{
-  width: 100%;
-}
+/* ===========================
+      RESPONSIVE DESIGN
+==============================*/
+
+/* ---------- Tablet (max 900px) ----------- */
+@media (max-width: 900px){
   
-}
-
-
-
-
-
-@media (max-width:610px) {
-  .icon-name{
-    width: 90%;
-    text-align: center;
-    
-  }
-   .header-container{
-    height: 210px;
+  
+  .searchandicon{
+    width: 100%;
+    flex-direction: column;
   }
 
   .icon{
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-container{
+    width: 100%;
     margin-top: 10px;
-    margin-left: 15px
   }
+  .menusmall{
+    display: block;
+    margin-left: 65% ;
+
+  }
+  .nav-container{
+    display: none;
+  }
+}
+
+/* ---------- Mobile (max 600px) ----------- */
+@media (max-width: 600px){
+
+  /* Show hamburger */
+  .hmenu{
+    display: block;
+  }
+
+  .icon{
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .searchcont{
+    width: 100%;
+    flex-direction: column;
+  }
+
   .input{
-    width: 80vw;
-    margin: 7px;
+    width: 90%;
   }
-  
- .searchandicon{
-  flex-direction: column;
- }
+
+  .btnssearch{
+    width: 60%;
+  }
+
+  /* Navigation hide on mobile */
+  .nav-container{
+    display: none;
+  }
 }

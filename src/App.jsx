@@ -74,6 +74,10 @@ export const App = () => {
                       <PlaceOrder/>
                     </Suspense>
                   },
+                  {
+                    path:"/x",
+                    element:<Header/>
+                  }
                 
                 
               ]

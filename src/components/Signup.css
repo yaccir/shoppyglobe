@@ -15,6 +15,9 @@
 .formcontt{
     display: none;
 }
+.p1{
+    color:red;
+}
 .radio-cont{
     display: flex;
     gap: 190px;
