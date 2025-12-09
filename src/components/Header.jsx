@@ -51,7 +51,7 @@ const Header = () => {
           <div className= 'menusmall'>
           
         <button className='btns' onClick={handlehome}>Home</button>
-        <button className='btns' onClick={handlecart}>Cart-{cart.length}</button>
+        <button className='btns1' onClick={handlecart}><img className='cartimg' src="./src/images/cart.png" alt="" /><span >-{cart.length}</span></button>
 
 
     </div>

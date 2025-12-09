@@ -19,6 +19,19 @@
  font-weight: bold;
  
 }
+
+.btns1{
+  width: 80px;
+  height: 40px;
+ background: transparent;
+ color:black;
+ margin: 10px;
+ font-size: 15px;
+ font-weight: bold;
+ border: 0px;
+ 
+}
+
 .btns:hover{
   transform: scale(1.05);
   cursor: pointer;
@@ -83,7 +96,12 @@ font-weight: bold;
   align-items: center;
   gap: 10px;
 }
-
+.cartimg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
 .input{
   width:80%;
   height: 40px;
@@ -115,8 +133,11 @@ font-weight: bold;
     margin-top: 10px;
   }
   .menusmall{
-    display: block;
-    margin-left: 60% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50% ;
+    
   
 
   }
@@ -128,10 +149,7 @@ font-weight: bold;
 /* ---------- Mobile (max 600px) ----------- */
 @media (max-width: 600px){
 
-  /* Show hamburger */
-  .hmenu{
-    display: block;
-  }
+ 
 
   .icon{
     width: 100%;
