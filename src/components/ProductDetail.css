@@ -2,17 +2,45 @@
     width: 100vw;
     display: flex;
     flex-direction: column;
+
+    
 }
 .containerdetails{
     display: flex;
-
+   
+    flex-wrap: wrap;
 }
 
 .imagecontofproduct{
-    width: 40%;
+    width: 30%;
     padding: 7px;
-    border: 1px solid red;
+  
 
+}
+@media (max-width:763px) {
+    .detailscont{
+        border: 2px solid green;
+    }
+    .imagecontofproduct{
+        width: 80%;
+    }
+    .cont1{
+        flex-wrap: wrap;
+    }
+    .cont2{
+        flex-wrap: wrap;
+    }
+    .form-container{
+        flex-wrap: wrap;
+    }
+    .inputlabel{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .cont3{
+        flex-wrap: wrap;
+    
+    }
 }
 
 .imageofprod{

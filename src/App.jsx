@@ -16,6 +16,7 @@ const Cart=React.lazy(()=>{
 import { createBrowserRouter, Outlet } from "react-router";
 import { RouterProvider } from "react-router/dom"; 
 import Searched from "./components/Searched"
+import Footer from "./components/Footer";
 
 // import { Cart } from "./components/Cart";
 
@@ -39,6 +40,7 @@ export const App = () => {
         <Header/>
       
         <Outlet/>
+        <Footer/>
               </div>,
 
               children:[

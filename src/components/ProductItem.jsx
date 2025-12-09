@@ -51,7 +51,7 @@ const navigate=useNavigate()
         <p className="itemname">{title}</p>
         <div className="pricencart">
           {/* price of the item */}
-        <p>{price}</p>
+        <p>${price}</p>
         {/* add to cart button */}
         <button onClick={handleaddcart} className="addcartbtn">add to cart</button>
         </div>

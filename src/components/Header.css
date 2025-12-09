@@ -4,9 +4,36 @@
   height: auto;
   justify-content: space-between;
   align-items: center;
-  
+  background-color: rgb(255, 242, 225);
   flex-wrap: wrap;
   padding: 10px 15px;
+}
+
+.btns{
+  width: 80px;
+  height: 40px;
+ background-color: rgb(10, 88, 233);
+ color:wheat;
+ margin: 10px;
+ font-size: 15px;
+ font-weight: bold;
+ 
+}
+.btns:hover{
+  transform: scale(1.05);
+  cursor: pointer;
+  background-color: blue;
+}
+.btnssearch{
+background-color: rgb(10, 88, 233);
+color: antiquewhite;
+font-size: 15px;
+font-weight: bold;
+}
+.btnssearch:hover{
+  transform: scale(1.05);
+  cursor: pointer;
+  background-color: blue;
 }
 
 /* Hamburger menu (mobile only visible) */
@@ -69,11 +96,7 @@
 .menusmall{
   display: none;
 }
-/* ===========================
-      RESPONSIVE DESIGN
-==============================*/
-
-/* ---------- Tablet (max 900px) ----------- */
+/* responsive design */
 @media (max-width: 900px){
   
   
@@ -93,7 +116,8 @@
   }
   .menusmall{
     display: block;
-    margin-left: 65% ;
+    margin-left: 60% ;
+  
 
   }
   .nav-container{
@@ -124,11 +148,19 @@
   }
 
   .btnssearch{
-    width: 60%;
+    width: 30%;
+    font-size: 15px;
   }
 
   /* Navigation hide on mobile */
   .nav-container{
     display: none;
   }
+}
+@media (max-width:230px) {
+    .btnssearch{
+    width: 85%;
+    font-size: 15px;
+  }
+  
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "../components/ProductDetail.css"
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
 import { addCartItem, setQuantities } from '../utils/cartSlice';
 
@@ -9,6 +9,7 @@ const ProductDetail = () => {
 
     
     const dispatch=useDispatch();
+    const navigate=useNavigate();
 
     const id2=useParams();
   
@@ -124,7 +125,7 @@ function handlequantity(e) {
              <label className='labelforinput' htmlFor="">Quantity:</label>
             <input onChange={handlequantity} value={inputqnty} className='inputqnty' type="number" />
            </div>
-            <button className='cartbutton'>Buy Now</button>
+            <button onClick={(e)=>{e.preventDefault(); navigate("/placeorder")}} className='cartbutton'>Buy Now</button>
             <button onClick={handleaddcart} className='cartbutton'>Add to Cart</button>
         </form>
      </div>
@@ -132,7 +133,7 @@ function handlequantity(e) {
          <div className='cont3'>
              <p>Minimum Order : {dataofitem.minimumOrderQuantity} </p>
           <p>Availaible Instock {dataofitem.stock}</p>
-          <p>Weight {dataofitem.weight}Kg</p>
+         
          </div>
 
         <div className='cont4'>
@@ -153,10 +154,7 @@ function handlequantity(e) {
         
         </div>
 
-        <div>
-        <p>reviews</p>
-        
-         </div>
+  
 
 
    </div>}
