@@ -1,6 +1,7 @@
 .cartpage{
     display: flex;
     flex-direction: column;
+    height: 400px;
 }
 
 .placeordercont{
@@ -34,4 +35,8 @@ flex-wrap: wrap;
 }
 .incart{
 display: none;
+}
+
+#image-c{
+    width: 200px;
 }

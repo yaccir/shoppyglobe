@@ -33,7 +33,7 @@ function Cart(){
 
 <div  className={cartstore.length==0?"vcart":"incart" }>
   <h1>NO ITEMS ADDED TO THE CART</h1>
-  <img src="./src/images/cartpage.png" alt="" />
+  <img id='image-c' src="./src/images/cartpage.png" alt="" />
 </div>
 
 <div className={cartstore.length!=0?"placeordercont":"incart" }>
