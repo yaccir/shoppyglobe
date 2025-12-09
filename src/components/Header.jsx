@@ -75,7 +75,7 @@ const Header = () => {
         <nav className='nav0'>
             <ul className='nav-pannel'>
                 <li><button className='btns' onClick={handlehome}>Home</button></li>
-                <li> <button className='btns' onClick={handlecart}>Cart-{cart.length}</button></li>
+                <li> <button className='btns1' onClick={handlecart}><img className='cartimg' src="./src/images/cart.png" alt="" /><span >-{cart.length}</span></button></li>
           
             </ul>
         </nav>
