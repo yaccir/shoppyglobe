@@ -227,3 +227,6 @@ Feel free to extend this project further by adding:
 ---
 
 
+
+
+got to terminal ad paste npm i to install nodemodules in the project
